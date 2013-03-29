@@ -41,7 +41,7 @@ set incsearch                         " incremental search
 syntax enable
 set t_Co=256
 try
-  colorscheme rails_envy
+  colorscheme vividchalk
 catch
 endtry
 
@@ -96,7 +96,7 @@ map <Leader><Leader> <Leader>c<space>
 
 " next and prev tab
 noremap <F7> gT
-noremap <F8> gt
+noremap <F6> gt
 
 " identation
 nmap <TAB> v>
