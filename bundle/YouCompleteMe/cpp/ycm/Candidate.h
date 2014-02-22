@@ -1,4 +1,4 @@
-// Copyright (C) 2011, 2012  Strahinja Val Markovic  <val@markovic.io>
+// Copyright (C) 2011, 2012  Google Inc.
 //
 // This file is part of YouCompleteMe.
 //
@@ -33,6 +33,9 @@ class Result;
 typedef std::bitset< NUM_LETTERS > Bitset;
 
 Bitset LetterBitsetFromString( const std::string &text );
+
+// Public for tests
+std::string GetWordBoundaryChars( const std::string &text );
 
 class Candidate : boost::noncopyable {
 public:

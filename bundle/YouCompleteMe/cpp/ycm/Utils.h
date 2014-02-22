@@ -1,4 +1,4 @@
-// Copyright (C) 2011, 2012  Strahinja Val Markovic  <val@markovic.io>
+// Copyright (C) 2011, 2012  Google Inc.
 //
 // This file is part of YouCompleteMe.
 //
@@ -56,7 +56,7 @@ typename Container::mapped_type
 FindWithDefault( Container &container,
                  const Key &key,
                  const typename Container::mapped_type &value ) {
-  typename Container::iterator it = container.find( key );
+  typename Container::const_iterator it = container.find( key );
   return it != container.end() ? it->second : value;
 }
 

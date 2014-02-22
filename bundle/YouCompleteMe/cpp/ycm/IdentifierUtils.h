@@ -1,4 +1,4 @@
-// Copyright (C) 2011, 2012  Strahinja Val Markovic  <val@markovic.io>
+// Copyright (C) 2011, 2012  Google Inc.
 //
 // This file is part of YouCompleteMe.
 //
@@ -18,8 +18,12 @@
 #ifndef IDENTIFIERUTILS_CPP_WFFUZNET
 #define IDENTIFIERUTILS_CPP_WFFUZNET
 
+#include "IdentifierDatabase.h"
+
 #include <vector>
 #include <string>
+
+#include <boost/filesystem.hpp>
 
 namespace YouCompleteMe {
 
@@ -32,6 +36,9 @@ std::string RemoveIdentifierFreeText( std::string text );
 
 std::vector< std::string > ExtractIdentifiersFromText(
   const std::string &text );
+
+FiletypeIdentifierMap ExtractIdentifiersFromTagsFile(
+  const boost::filesystem::path &path_to_tag_file );
 
 } // namespace YouCompleteMe
 

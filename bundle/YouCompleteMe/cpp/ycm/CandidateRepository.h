@@ -1,4 +1,4 @@
-// Copyright (C) 2011, 2012  Strahinja Val Markovic  <val@markovic.io>
+// Copyright (C) 2011, 2012  Google Inc.
 //
 // This file is part of YouCompleteMe.
 //
@@ -33,6 +33,15 @@ struct CompletionData;
 typedef boost::unordered_map< std::string, const Candidate * >
 CandidateHolder;
 
+
+// This singleton stores already built Candidate objects for candidate strings
+// that were already seen. If Candidates are requested for previously unseen
+// strings, new Candidate objects are built.
+//
+// This is shared by the identifier completer and the clang completer so that
+// work is not repeated.
+//
+// This class is thread-safe.
 class CandidateRepository : boost::noncopyable {
 public:
   static CandidateRepository &Instance();
@@ -55,6 +64,8 @@ private:
 
   static boost::mutex singleton_mutex_;
   static CandidateRepository *instance_;
+
+  const std::string empty_;
 
   // This data structure owns all the Candidate pointers
   CandidateHolder candidate_holder_;
